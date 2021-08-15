@@ -1,0 +1,149 @@
+name:                pytools
+version:             0.1.0.0
+github:              "githubuser/pytools"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2021 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/pytools#readme>
+
+dependencies:
+  - base
+  - pyrelude
+  - containers
+  - extra
+  - aeson
+  - yaml
+  - pretty-show
+  - raw-strings-qq
+
+ghc-options:
+  - -fmax-pmcheck-models=10000000
+  - -ferror-spans
+  # - -dth-dec-file -- generate template haskell
+
+  - -O0
+  # TODO: prgma to turn optimisations on for non-dev build
+  # - -O2
+  # - -Werror
+  - -Wall
+  - -Wcompat
+  - -Wincomplete-record-updates
+  - -Wincomplete-uni-patterns
+  - -Wredundant-constraints
+  - -fwarn-tabs
+  - -fno-warn-unused-imports
+  - -fno-warn-missing-signatures
+  - -fno-warn-type-defaults
+  - -fno-warn-unused-matches
+  - -fno-warn-unused-binds
+  - -fno-warn-unused-do-bind
+  - -fwrite-ide-info
+  # - -fdefer-type-errors
+
+default-extensions:
+  - AllowAmbiguousTypes
+  - BangPatterns
+  - BlockArguments
+  - ConstrainedClassMethods
+  - ConstraintKinds
+  - DisambiguateRecordFields
+  - DuplicateRecordFields
+  - DataKinds
+  - DefaultSignatures
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveGeneric
+  - DeriveLift
+  - DeriveTraversable
+  - DerivingStrategies
+  - EmptyCase
+  - ExistentialQuantification
+  - ExtendedDefaultRules
+  - FlexibleContexts
+  - FlexibleInstances
+  - FunctionalDependencies
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - InstanceSigs
+  - KindSignatures
+  - LambdaCase
+  - LiberalTypeSynonyms
+  - MultiParamTypeClasses
+  - MultiWayIf
+  - NamedFieldPuns
+  - NoImplicitPrelude
+  - OverloadedStrings
+  - PartialTypeSignatures
+  - PatternSynonyms
+  - PolyKinds
+  - QuasiQuotes
+  - RankNTypes
+  - RecordWildCards
+  - ScopedTypeVariables
+  - StandaloneDeriving
+  - StrictData
+  - TemplateHaskell
+  - TupleSections
+  - TypeApplications
+  - TypeFamilies
+  - TypeFamilyDependencies
+  - TypeOperators
+
+# library:
+#   source-dirs: 
+#   - src
+#   - test
+
+# God mdodule for now - split later
+executables:
+  pytools-exe:
+    main: Main.hs
+    source-dirs:         
+     - app
+    #  unGod later
+     - src
+     - test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    # - pytools
+    # lib
+    - optparse-applicative
+    # test modules
+    - tasty
+    - tasty-hunit
+    - tasty-hedgehog
+    - tasty-discover
+    - hedgehog
+
+# tests:
+#   pytools-test:
+#     main:                driver.hs
+#     source-dirs:         test
+#     ghc-options:
+#     - -threaded
+#     - -rtsopts
+#     - -with-rtsopts=-N
+#     dependencies:
+#     - pytools
+#      # test modules
+#     - tasty
+#     - tasty-hunit
+#     - tasty-hedgehog
+#     - tasty-discover
+#     - hedgehog
